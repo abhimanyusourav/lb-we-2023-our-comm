@@ -1,27 +1,31 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = () => {
-    const originalPrice = 7000;
-    const discountInPercentage = 37;
+const ProductCard = ({ id, img, name, desc, price, discountPercentage }) => {
+  // props / properties
+  const originalPrice = price;
+  const discountInPercentage = discountPercentage;
 
   return (
-    <div className='product-card'>
+    <Link to={"/product/" + id}>
+      <div className="product-card">
         <div className="product-img">
-            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/cycle/8/t/h/ut1000-steel-mtb-with-21-shimano-gear-and-installation-services-original-imagujw36fb6gany.jpeg?q=70" alt="" />
+          <img src={img} alt="" />
         </div>
-        <div className="product-name">
-            Urban Terrain Shimano Geared for Men
-        </div>
-        <div className="product-desc">
-            21 Gear, Black
-        </div>
+        <div className="product-name">{name}</div>
+        <div className="product-desc">{desc}</div>
         <div className="product-price">
-            <span className="product-price-final">₹{originalPrice * ((100-discountInPercentage)/100)}</span>
-            <span className="product-price-original">₹{originalPrice}</span>
-            <span className="product-price-discount">{discountInPercentage}% off</span>
+          <span className="product-price-final">
+            ₹{originalPrice * ((100 - discountInPercentage) / 100)}
+          </span>
+          <span className="product-price-original">₹{originalPrice}</span>
+          <span className="product-price-discount">
+            {discountInPercentage}% off
+          </span>
         </div>
-    </div>
-  )
-}
+      </div>
+    </Link>
+  );
+};
 
-export default ProductCard
+export default ProductCard;

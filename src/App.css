@@ -99,3 +99,13 @@ footer {
   color: #A2708A;
   font-weight: 600;
 }
+
+.product-detail-container {
+  max-width: 900px;
+  margin: auto;
+  min-height: 80vh;
+}
+
+.product-detail {
+  padding: 32px 16px;
+}
